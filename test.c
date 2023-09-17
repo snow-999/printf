@@ -1,4 +1,4 @@
-#include "main.c"
+#include "main.h"
 /**
  * print_from_to - rage char
  * @s: start
@@ -40,7 +40,7 @@ int print_revese(va_list arg, param_t *param)
 		{
 		l++;
 		}
-		for (; l > 0 l--, ptr++)
+		for (; l > 0; l--, ptr++)
 		{
 		sum += _putchar(*ptr);
 		}
@@ -64,17 +64,17 @@ int print_rot(va_list arg, param_t *param)
 
 	i = 0;
 	i2 = 0;
-	while (x[i])
+	while (array[i])
 	{
-	if ((a[i] >= 'A' && a[i] <= 'Z')
-	|| (a[i] >= 'a' && a[i] <= 'z'))
+	if ((array[i] >= 'A' && array[i] <= 'Z')
+	|| (array[i] >= 'a' && array[i] <= 'z'))
 	{
-	i2 = a[i] - 65;
+	i2 = array[i] - 65;
 	c = c + _putchar(array[i2]);
 	}
 	else
 	{
-	c = c + _putchar(a[i]);
+	c = c + _putchar(array[i]);
 	}
 	i++;
 	}

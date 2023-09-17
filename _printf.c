@@ -30,7 +30,7 @@ int print_char(va_list arg, param_t *param)
  * @param: parameters struct
  * Return: number
 */
-int print_integer(va_list arg, parama_t *param)
+int print_integer(va_list arg, param_t *param)
 {
 	long i;
 

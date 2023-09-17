@@ -22,13 +22,13 @@ char *convert(long int num, int base, int flag, param_t *param)
 		x = -num;
 		sn = '-';
 	}
-	arr = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	arr = flag & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	str = &buffer[49];
 	*str = '\0';
 	do {
 	*--str = arr[x % base];
-	n = n / base;
-	} while (n != 0);
+	x = x / base;
+	} while (x != 0);
 	if (sn)
 	{
 	*--str = sn;
@@ -58,7 +58,7 @@ int print_unsigned(va_list arg, param_t *param)
 	x = (unsigned int)va_arg(arg, unsigned int);
 	}
 	param->unsign = 1;
-	return (print_number(covert(x, 10, CONVERT_UNSIGNED, param), param));
+	return (print_num(convert(x, 10, CONVERT_UNSIGNED, param), param));
 }
 /**
  * print_adderss - preint address
@@ -75,8 +75,8 @@ int print_adderss(va_list arg, param_t *param)
 	{
 	return (_put("(nil)"));
 	}
-	str = convert(num, 16 CONVERT_UNSIGNED | CONVERT_LOWERCASE, param);
+	ptr = convert(num, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, param);
 	*--ptr = 'x';
 	*--ptr = '0';
-	return (print_number(ptr, param));
+	return (print_num(ptr, param));
 }

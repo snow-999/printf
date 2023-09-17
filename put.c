@@ -25,7 +25,7 @@ int _putchar(int c)
 	int i;
 	char buf[OUTPUT_BUF_SIZE];
 
-	if (c == BUF_FLUF || i >= OUTPUT_BUF_SIZE)
+	if (c == BUF_FLUSH || i >= OUTPUT_BUF_SIZE)
 	{
 	write(1, buf, i);
 	i = 0;
@@ -34,5 +34,5 @@ int _putchar(int c)
 	{
 	buf[i++] = c;
 	}
-	return (1)
+	return (1);
 }

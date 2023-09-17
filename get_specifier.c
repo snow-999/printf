@@ -8,32 +8,26 @@
 
 int (*get_specifier(char *s))(va_list arg, param_t *param)
 {
-	specifier_t specifier[] = {
+	specifier_t specifier[] =
+	{
 		{"c", print_char},
-		{"d", print_int},
-		{"i", print_int},
+		{"d", print_integer},
+		{"i", print_integer},
 		{"s", print_string},
 		{"%", print_percent},
-		{"b", print_binary},
-		{"o", print_octal},
 		{"u", print_unsigned},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"p", print_address},
-		{"S", print_S},
-		{"r", print_revers},
-		{"R", print_rot}
+		{"R", print_rot},
 		{NULL, NULL}
 	};
 	int x = 0;
 
-	while (specifier[i].specifier)
+	while (specifier[x].specifier)
 	{
 		if (*s == specifier[x].specifier[0])
 		{
 		return (specifier[x].f);
 		}
-		i++;
+		x++;
 	}
 	return (NULL);
 }
@@ -67,19 +61,19 @@ int get_flag(char *s, param_t *param)
 
 	switch (*s)
 	{
-	case '+';
+	case '+':
 		i = param->plus_flag = 1;
 		break;
-	case ' ';
+	case ' ':
 		i = param->space_flag = 1;
 		break;
-	case '#';
+	case '#':
 		i = param->hashtag_flag = 1;
 		break;
-	case '-';
+	case '-':
 		i = param->minus_flag = 1;
 		break;
-	case '0';
+	case '0':
 		i = param->zero_flag = 1;
 		break;
 	}
@@ -97,10 +91,10 @@ int get_modifier(char *s, param_t *param)
 
 	switch (*s)
 	{
-	case 'h';
+	case 'h':
 		i = param->h_modifier = 1;
 		break;
-	case 'l';
+	case 'l':
 		i = param->l_modifier = 1;
 		break;
 	}
@@ -113,9 +107,9 @@ int get_modifier(char *s, param_t *param)
  * @arg: argument
  * Return: s
 */
-int get_width(char *s, param_t *param, va_list arg)
+char *get_width(char *s, param_t *param, va_list arg)
 {
-	int x = o;
+	int x = 0;
 
 	if (*s == '*')
 	{
@@ -124,7 +118,7 @@ int get_width(char *s, param_t *param, va_list arg)
 	}
 	else
 	{
-	while (_isdigit(*s))
+	while (is_digit(*s))
 	{
 	x = x * 10 + (*s++ - '0');
 	}

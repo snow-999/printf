@@ -34,7 +34,7 @@ int print_num(char *ptr, param_t *param)
 	unsigned int i = length(ptr);
 	int n = (!param->unsign && *ptr == '-');
 
-	if (!param->percision && *ptr == '0' && !ptr[1])
+	if (!param->precision && *ptr == '0' && !ptr[1])
 	{
 	ptr = "";
 	}
@@ -47,7 +47,7 @@ int print_num(char *ptr, param_t *param)
 	{
 	while (i++ < param->precision)
 	{
-	*--str = '0';
+	*--ptr = '0';
 	}
 	}
 	if (n)
@@ -74,12 +74,12 @@ int print_num_right_shift(char *ptr, param_t *param)
 	unsigned int x = 0, n1, n2, i = length(ptr);
 	char pd_char = ' ';
 
-	if (param->zero_flag && !param->munis_flag)
+	if (param->zero_flag && !param->minus_flag)
 	{
 	pd_char = '0';
 	}
 	n1 = n2 = (!param->unsign && *ptr == '-');
-	if (x && i < param->width && pd_char == '0' && !param->munis_flag)
+	if (x && i < param->width && pd_char == '0' && !param->minus_flag)
 	{
 	ptr++;
 	}
@@ -115,14 +115,14 @@ int print_num_right_shift(char *ptr, param_t *param)
 	}
 	if (param->plus_flag && !n2 && pd_char == ' ' && !param->unsign)
 	{
-	x = x + _Putchar('+');
+	x = x + _putchar('+');
 	}
 	else if (!param->plus_flag && !n2 && param->space_flag &&
 			!param->unsign && !param->zero_flag)
 	{
 	x = x + _putchar(' ');
 	}
-	x = x + put(ptr);
+	x = x + _put(ptr);
 	return (x);
 }
 /**
@@ -157,7 +157,7 @@ int print_num_left_shift(char *ptr, param_t *param)
 	{
 	x = x + _putchar(' ');
 	i++;
-	x = x + put(ptr);
+	x = x + _put(ptr);
 	}
 	while (i++ < param->width)
 	{

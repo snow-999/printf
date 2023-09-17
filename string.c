@@ -23,7 +23,7 @@ char *get_precision(char *s, param_t *param, va_list arg)
 	}
 	else
 	{
-	while (_isdigit(*s))
+	while (is_digit(*s))
 	{
 	l = l * 10 + (*s++ - '0');
 	}

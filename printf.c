@@ -9,7 +9,7 @@ int _printf(const char *format, ...)
 	int x = 0;
 	va_list arg;
 	char *s , *s1;
-	param_t param = PARAM_INT;
+	param_t param = PARAM_INIT;
 
 	va_start(arg, format);
 	if (!format || (format[0] == '%' && !format[1]))
@@ -30,13 +30,12 @@ int _printf(const char *format, ...)
 	}
 	s1 = s;
 	s++;
-	while (get_flag(p, &param))
+	while (get_flag(s, &param))
 	{
-	s++
+	s++;
 	}
 	s = get_width(s, &param, arg);
 	s = get_precision(s, &param, arg);
-	s = get_modifier(s, &param);
 	if (get_modifier(s, &param))
 	{
 	s++;
@@ -44,7 +43,7 @@ int _printf(const char *format, ...)
 	if(get_specifier(s))
 	{
 	x += print_from_to(s1, s,
-	param.l_modifier || param.h_modifier ? p - 1 : 0);
+	param.l_modifier || param.h_modifier ? s - 1 : 0);
 	}
 	else
 	{
