@@ -8,7 +8,7 @@ int _printf(const char *format, ...)
 {
 	int x = 0;
 	va_list arg;
-	char *s , *s1;
+	char *s, *s1;
 	param_t param = PARAM_INIT;
 
 	va_start(arg, format);
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 	{
 	s++;
 	}
-	if(get_specifier(s))
+	if (get_specifier(s))
 	{
 	x += print_from_to(s1, s,
 	param.l_modifier || param.h_modifier ? s - 1 : 0);

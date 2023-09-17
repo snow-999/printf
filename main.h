@@ -81,5 +81,9 @@ char *get_precision(char *s, param_t *param, va_list arg);
 int _printf(const char *format, ...);
 char *get_width(char *s, param_t *param, va_list arg);
 int print_string(va_list arg, param_t *param);
+int print_octal(va_list arg, param_t *param);
+int print_HEX(va_list arg, param_t *param);
+int print_hex(va_list arg, param_t *param);
+
 
 #endif /* MAIN_H */
