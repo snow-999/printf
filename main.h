@@ -32,6 +32,7 @@ typedef struct specifier
 /* string or character */
 int _put(char *ptr);
 int _putchar(int c);
+
 /* numbers */
 /* printf function */
 int print_char(va_list arg, param_t *params);
