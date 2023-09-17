@@ -59,8 +59,8 @@ int print_rot(va_list arg, param_t *param)
 	int i, i2;
 	int c = 0;
 	char array[] = "NOPQRSTUVWXYZABCDEFGHIJKLM	nopqrstuvwxyzabcdefghijklm";
-	char *z = va_arg(arg, char *);
 	(void)param;
+	(void)arg;
 
 	i = 0;
 	i2 = 0;

@@ -71,14 +71,14 @@ int print_num(char *ptr, param_t *param)
 */
 int print_num_right_shift(char *ptr, param_t *param)
 {
-	unsigned int x = 0, n1, n2, i = length(ptr);
+	unsigned int x = 0, n2, i = length(ptr);
 	char pd_char = ' ';
 
 	if (param->zero_flag && !param->minus_flag)
 	{
 	pd_char = '0';
 	}
-	n1 = n2 = (!param->unsign && *ptr == '-');
+	n2 = (!param->unsign && *ptr == '-');
 	if (x && i < param->width && pd_char == '0' && !param->minus_flag)
 	{
 	ptr++;
