@@ -80,6 +80,6 @@ int print_num_left_shift(char *ptr, param_t *param);
 char *get_precision(char *s, param_t *param, va_list arg);
 int _printf(const char *format, ...);
 char *get_width(char *s, param_t *param, va_list arg);
-
+int print_string(va_list arg, param_t *param);
 
 #endif /* MAIN_H */

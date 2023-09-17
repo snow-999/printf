@@ -60,3 +60,60 @@ int print_percent(va_list arg, param_t *param)
 	(void)param;
 	return (_putchar('%'));
 }
+/**
+ * print_string - print string
+ * @arg: argument
+ * @param: parameters struct
+ * Return: s
+ *
+*/
+int print_string(va_list arg, param_t *param)
+{
+	char *ptr = va_arg(arg, char *), pd_char = ' ';
+	unsigned int p = 0, s = 0, x = 0, z;
+	(void)param;
+
+	switch ((int)(!ptr))
+	{
+	case 1:
+		ptr = NULL_STRING;
+	}
+	z = p = length(ptr);
+	if (param->precision < p)
+	{
+	z = p = param->precision;
+	}
+	if (param->minus_flag)
+	{
+		if (param->precision != UINT_MAX)
+		{
+		for (x = 0; x < p; x++)
+		{
+		s = s + _putchar(*ptr++);
+		}
+		}
+		else
+		{
+		s = s + _put(ptr);
+		}
+	}
+	while (z++ < param->width)
+	{
+	s += _putchar(pd_char);
+	}
+	if (!param->minus_flag)
+	{
+		if (param->precision != UINT_MAX)
+		{
+		for (x = 0; x < p; x++)
+		{
+		s += _putchar(*ptr++);
+		}
+		}
+		else
+		{
+		s += _put(ptr);
+		}
+	}
+	return (s);
+}
