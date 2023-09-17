@@ -56,7 +56,6 @@ typedef struct specifier
 
 int print_char(va_list arg, param_t *param);
 int print_integer(va_list arg, param_t *param);
-int print_string(va_list arg, param_t *param);
 int print_percent(va_list arg, param_t *param);
 int print_S(va_list arg, param_t *param);
 char *convert(long int num, int base, int flag, param_t *param);
