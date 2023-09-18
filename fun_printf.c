@@ -74,46 +74,30 @@ int print_string(va_list arg, param_t *param)
 	(void)param;
 
 	switch ((int)(!ptr))
-	{
-	case 1:
-		ptr = NULL_STRING;
-	}
+		case 1:
+			ptr = NULL_STRING;
+
 	z = p = length(ptr);
 	if (param->precision < p)
-	{
-	z = p = param->precision;
-	}
+		z = p = param->precision;
+
 	if (param->minus_flag)
 	{
 		if (param->precision != UINT_MAX)
-		{
-		for (x = 0; x < p; x++)
-		{
-		s = s + _putchar(*ptr++);
-		}
-		}
+			for (x = 0; x < p; x++)
+				s = s + _putchar(*ptr++);
 		else
-		{
-		s = s + _put(ptr);
-		}
+			s = s + _put(ptr);
 	}
 	while (z++ < param->width)
-	{
-	s += _putchar(pd_char);
-	}
+		s += _putchar(pd_char);
 	if (!param->minus_flag)
 	{
 		if (param->precision != UINT_MAX)
-		{
-		for (x = 0; x < p; x++)
-		{
-		s += _putchar(*ptr++);
-		}
-		}
+			for (x = 0; x < p; x++)
+				s += _putchar(*ptr++);
 		else
-		{
-		s += _put(ptr);
-		}
+			s += _put(ptr);
 	}
 	return (s);
 }
