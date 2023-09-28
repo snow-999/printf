@@ -15,6 +15,7 @@ int (*get_specifier(char *s))(va_list arg, param_t *param)
 		{"%", print_percent},
 		{"s", print_string},
 		{"u", print_unsigned},
+		{"r", print_revese},
 		{"R", print_rot},
 		{NULL, NULL}
 	};
