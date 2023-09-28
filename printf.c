@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-	if (format[0] == '%' && format[1] == ' ' && !format[1])
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 	{
 		return (-1);
 	}
@@ -26,6 +26,7 @@ int _printf(const char *format, ...)
 		if (*s != '%')
 		{
 		x = x + _putchar(*s);
+		continue;
 		}
 		s1 = s;
 		s++;
